@@ -1,0 +1,69 @@
+{
+  "meta": {
+    "name": "pastel-saas-system",
+    "version": "1.0.0"
+  },
+  "color": {
+    "bg": {
+      "base": "#F7F9FF",
+      "gradientStart": "#F8FAFF",
+      "gradientEnd": "#EEF2FF"
+    },
+    "surface": {
+      "card": "rgba(255,255,255,0.78)",
+      "cardStrong": "#FFFFFF",
+      "border": "#DBE4FF"
+    },
+    "text": {
+      "primary": "#111827",
+      "secondary": "#475569",
+      "muted": "#64748B",
+      "inverse": "#FFFFFF"
+    },
+    "brand": {
+      "primary": "#4F46E5",
+      "primaryHover": "#4338CA",
+      "accentViolet": "#8B5CF6",
+      "accentBlue": "#60A5FA"
+    },
+    "state": {
+      "successBg": "#DCFCE7",
+      "successText": "#166534",
+      "warningBg": "#FEF3C7",
+      "warningText": "#92400E",
+      "dangerBg": "#FEE2E2",
+      "dangerText": "#991B1B",
+      "infoBg": "#DBEAFE",
+      "infoText": "#1E3A8A"
+    }
+  },
+  "typography": {
+    "fontFamily": "Inter, Segoe UI, system-ui, sans-serif",
+    "scale": {
+      "h1": { "size": 28, "lineHeight": 34, "weight": 700 },
+      "h2": { "size": 22, "lineHeight": 30, "weight": 700 },
+      "h3": { "size": 18, "lineHeight": 26, "weight": 600 },
+      "body": { "size": 14, "lineHeight": 22, "weight": 400 },
+      "label": { "size": 12, "lineHeight": 18, "weight": 600 }
+    }
+  },
+  "radius": {
+    "sm": 8,
+    "md": 12,
+    "lg": 16,
+    "xl": 20
+  },
+  "spacing": {
+    "xs": 4,
+    "sm": 8,
+    "md": 12,
+    "lg": 16,
+    "xl": 24,
+    "xxl": 32
+  },
+  "shadow": {
+    "card": "0 10px 30px rgba(76, 92, 157, 0.14)",
+    "cardHover": "0 16px 38px rgba(76, 92, 157, 0.20)",
+    "focus": "0 0 0 4px rgba(99,102,241,0.28)"
+  }
+}

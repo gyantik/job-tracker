@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="420" height="520" viewBox="0 0 420 520" role="img" aria-label="Auth light mockup">
+  <defs>
+    <linearGradient id="authbg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#f8faff"/>
+      <stop offset="100%" stop-color="#ecf2ff"/>
+    </linearGradient>
+  </defs>
+  <rect width="420" height="520" fill="url(#authbg)"/>
+  <rect x="54" y="56" width="312" height="408" rx="22" fill="rgba(255,255,255,0.78)" stroke="#dbe4ff"/>
+  <text x="84" y="106" font-size="24" font-family="Inter, Segoe UI, sans-serif" fill="#111827" font-weight="700">Welcome Back</text>
+  <text x="84" y="126" font-size="11" font-family="Inter, Segoe UI, sans-serif" fill="#64748b">Sign in to continue</text>
+
+  <text x="84" y="166" font-size="11" font-family="Inter, Segoe UI, sans-serif" fill="#334155" font-weight="600">Email</text>
+  <rect x="84" y="174" width="252" height="42" rx="12" fill="#ffffff" stroke="#cfd9ff"/>
+
+  <text x="84" y="246" font-size="11" font-family="Inter, Segoe UI, sans-serif" fill="#334155" font-weight="600">Password</text>
+  <rect x="84" y="254" width="252" height="42" rx="12" fill="#ffffff" stroke="#cfd9ff"/>
+
+  <rect x="84" y="318" width="252" height="44" rx="14" fill="#4f46e5"/>
+  <text x="188" y="346" font-size="13" font-family="Inter, Segoe UI, sans-serif" fill="#ffffff" font-weight="700">Sign In</text>
+
+  <text x="120" y="392" font-size="11" font-family="Inter, Segoe UI, sans-serif" fill="#64748b">No account yet?</text>
+  <text x="196" y="392" font-size="11" font-family="Inter, Segoe UI, sans-serif" fill="#4f46e5" font-weight="700">Create one</text>
+</svg>

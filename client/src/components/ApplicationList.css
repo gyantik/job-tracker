@@ -1,0 +1,181 @@
+.app-list-state {
+  text-align: center;
+  color: #94a3b8;
+}
+
+.app-card-grid {
+  display: grid;
+  gap: 1rem;
+}
+
+.app-item-card {
+  margin-bottom: 0;
+  padding: 0.95rem;
+}
+
+.app-item-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 0.8rem;
+}
+
+.app-item-top h3 {
+  margin: 0;
+  font-size: 1.05rem;
+  color: #f8fafc;
+}
+
+.app-role {
+  margin: 0.2rem 0 0;
+  color: #a3b3ca;
+}
+
+.app-meta-row {
+  margin-top: 0.7rem;
+  display: grid;
+  gap: 0.42rem;
+}
+
+.app-meta-row label,
+.app-notes-wrap label {
+  color: #cbd5e1;
+  font-size: 0.88rem;
+  font-weight: 600;
+}
+
+.status-select {
+  max-width: 220px;
+  font-weight: 600;
+  text-transform: capitalize;
+}
+
+.status-select.status-applied {
+  background: rgba(22, 101, 52, 0.3);
+  border-color: rgba(74, 222, 128, 0.5);
+  color: #86efac;
+}
+
+.status-select.status-interview {
+  background: rgba(146, 64, 14, 0.3);
+  border-color: rgba(251, 191, 36, 0.5);
+  color: #fcd34d;
+}
+
+.status-select.status-offer {
+  background: rgba(30, 64, 175, 0.28);
+  border-color: rgba(96, 165, 250, 0.52);
+  color: #93c5fd;
+}
+
+.status-select.status-rejected {
+  background: rgba(153, 27, 27, 0.32);
+  border-color: rgba(252, 165, 165, 0.48);
+  color: #fca5a5;
+}
+
+.app-date {
+  margin: 0;
+  color: #9fb0c8;
+  font-size: 0.9rem;
+}
+
+.app-compact-row {
+  margin-top: 0.7rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.8rem;
+}
+
+.app-notes-toggle {
+  padding: 0.45rem 0.72rem;
+  font-size: 0.84rem;
+  width: auto;
+}
+
+.app-notes-preview {
+  margin: 0.55rem 0 0;
+  color: #9fb0c8;
+  font-size: 0.9rem;
+  display: -webkit-box;
+  line-clamp: 1;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.app-notes-wrap {
+  margin-top: 0.65rem;
+  display: grid;
+  gap: 0.5rem;
+}
+
+.app-notes-wrap button {
+  width: fit-content;
+}
+
+.app-inline-message {
+  margin: 0.55rem 0 0;
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+.app-inline-success {
+  color: #86efac;
+}
+
+.app-inline-error {
+  color: #fca5a5;
+}
+
+.danger-btn {
+  padding: 0.45rem 0.7rem;
+  background: linear-gradient(135deg, #f43f5e, #dc2626);
+  color: #fff;
+  border: none;
+  border-radius: 0.45rem;
+  cursor: pointer;
+  font-size: 0.85rem;
+  transition: transform 0.16s ease, box-shadow 0.16s ease, background-color 0.16s ease;
+}
+
+.danger-btn:hover {
+  background: linear-gradient(135deg, #e11d48, #b91c1c);
+  transform: translateY(-1px);
+  box-shadow: 0 8px 16px rgba(225, 29, 72, 0.34);
+}
+
+.danger-btn:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 4px rgba(248, 113, 113, 0.35);
+}
+
+.danger-btn:disabled {
+  cursor: not-allowed;
+  opacity: 0.72;
+  transform: none;
+  box-shadow: none;
+}
+
+@media (max-width: 680px) {
+  .app-item-top {
+    flex-direction: column;
+  }
+
+  .danger-btn {
+    width: 100%;
+  }
+
+  .app-compact-row {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .status-select,
+  .app-notes-wrap button {
+    width: 100%;
+    max-width: none;
+  }
+}

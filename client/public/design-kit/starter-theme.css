@@ -1,0 +1,87 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+:root {
+  --bg-base: #f7f9ff;
+  --bg-grad-start: #f8faff;
+  --bg-grad-end: #eef2ff;
+  --surface-card: rgba(255, 255, 255, 0.78);
+  --surface-border: #dbe4ff;
+  --text-primary: #111827;
+  --text-secondary: #475569;
+  --text-muted: #64748b;
+  --brand-primary: #4f46e5;
+  --brand-hover: #4338ca;
+  --accent-violet: #8b5cf6;
+  --accent-blue: #60a5fa;
+  --success-bg: #dcfce7;
+  --success-text: #166534;
+  --warning-bg: #fef3c7;
+  --warning-text: #92400e;
+  --danger-bg: #fee2e2;
+  --danger-text: #991b1b;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+  --shadow-card: 0 10px 30px rgba(76, 92, 157, 0.14);
+  --shadow-card-hover: 0 16px 38px rgba(76, 92, 157, 0.2);
+  --focus-ring: 0 0 0 4px rgba(99, 102, 241, 0.28);
+}
+
+body {
+  margin: 0;
+  font-family: Inter, Segoe UI, system-ui, sans-serif;
+  color: var(--text-primary);
+  background:
+    radial-gradient(circle at 10% 8%, #dbeafe 0, transparent 34%),
+    radial-gradient(circle at 90% 0%, #ede9fe 0, transparent 30%),
+    linear-gradient(160deg, var(--bg-grad-start), var(--bg-grad-end));
+}
+
+.ui-card {
+  background: var(--surface-card);
+  border: 1px solid var(--surface-border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-card);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.ui-card:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-card-hover);
+}
+
+.ui-button-primary {
+  border: none;
+  border-radius: 10px;
+  color: #fff;
+  font-weight: 600;
+  background: linear-gradient(135deg, var(--brand-primary), var(--accent-violet));
+  transition: transform 0.16s ease, box-shadow 0.16s ease;
+}
+
+.ui-button-primary:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 10px 22px rgba(79, 70, 229, 0.34);
+}
+
+.ui-input,
+.ui-select,
+.ui-textarea {
+  border: 1px solid #cfd9ff;
+  border-radius: 10px;
+  background: #fff;
+  color: var(--text-primary);
+}
+
+.ui-input:focus-visible,
+.ui-select:focus-visible,
+.ui-textarea:focus-visible,
+.ui-button-primary:focus-visible {
+  outline: none;
+  box-shadow: var(--focus-ring);
+}
+
+.ui-badge-success { background: var(--success-bg); color: var(--success-text); }
+.ui-badge-warning { background: var(--warning-bg); color: var(--warning-text); }
+.ui-badge-danger { background: var(--danger-bg); color: var(--danger-text); }
