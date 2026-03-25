@@ -1,7 +1,11 @@
 const dotenv = require('dotenv')
 const path = require('path')
 
-dotenv.config({ path: path.resolve(__dirname, '../.env') })
+const shouldLoadLocalEnv = process.env.NODE_ENV !== 'production' && process.env.RENDER !== 'true'
+
+if (shouldLoadLocalEnv) {
+  dotenv.config({ path: path.resolve(__dirname, '../.env') })
+}
 
 const { connectDB } = require('./config/db')
 const app = require('./app')
