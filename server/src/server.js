@@ -1,9 +1,7 @@
 const dotenv = require('dotenv')
 const path = require('path')
 
-const shouldLoadLocalEnv = process.env.NODE_ENV !== 'production' && process.env.RENDER !== 'true'
-
-if (shouldLoadLocalEnv) {
+if (process.env.NODE_ENV !== 'production') {
   dotenv.config({ path: path.resolve(__dirname, '../.env') })
 }
 
