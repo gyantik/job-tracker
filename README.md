@@ -1,52 +1,93 @@
-# Job Tracker (MERN)
+# Job Tracker
 
-A full-stack Job Tracker scaffold using:
+A full-stack job tracking app with:
 
-- MongoDB
-- Express.js
-- React (Vite)
-- Node.js
+- Backend: Node.js + Express + PostgreSQL
+- Frontend: React + Vite
 
-## Project Structure
+## Monorepo scripts
 
-- client/: React frontend (routing, auth context, API layer, pages, components)
-- server/: Express + MongoDB backend (MVC pattern)
+From workspace root:
 
-## Backend Structure
+- npm run dev: run server + client together
+- npm run dev:server: run backend only
+- npm run dev:client: run frontend only
+- npm run build:client: production build for frontend
+- npm run start:server: run backend in production mode
 
-- src/config: Database connection
-- src/models: Mongoose models
-- src/controllers: Request handlers
-- src/routes: Express route modules
-- src/middleware: Auth middleware
-- src/app.js: Express app setup
-- src/server.js: Server bootstrap
+## Local setup
 
-## Frontend Structure
+1. Install dependencies:
 
-- src/api: Axios clients and API functions
-- src/context: Global auth state
-- src/components: Reusable UI components
-- src/pages: Route-level pages
+   - npm --prefix server install
+   - npm --prefix client install
 
-## Setup
+2. Create env files:
 
-1. Install dependencies
+   - server/.env from server/.env.example
+   - client/.env from client/.env.example
 
-   - In client/: npm install
-   - In server/: npm install
+3. Start locally:
 
-2. Configure environment files
+   - npm run dev
 
-   - Copy server/.env.example to server/.env
-   - Copy client/.env.example to client/.env
+## Deployment setup
 
-3. Start development servers
+This repository is configured for:
 
-   - Backend: npm run dev (from server/)
-   - Frontend: npm run dev (from client/)
+- Backend on Render (Web Service)
+- Frontend on Vercel (Vite)
 
-## API Prefix
+### Backend on Render
+
+Use render.yaml at repository root.
+
+- rootDir: server
+- buildCommand: npm install
+- startCommand: npm run start
+- health check: /api/health
+
+Required Render environment variables:
+
+- NODE_ENV=production
+- PORT=5000
+- DB_USER
+- DB_PASSWORD
+- DB_HOST
+- DB_PORT
+- DB_NAME
+- JWT_SECRET
+- CORS_ORIGINS
+- DEV_RESET_KEY (optional)
+
+CORS_ORIGINS should be a comma-separated list of allowed frontend URLs.
+Example:
+
+https://job-tracker.vercel.app,https://job-tracker-git-main-yourteam.vercel.app
+
+### Frontend on Vercel
+
+Use client/vercel.json.
+
+- framework: vite
+- build command: npm run build
+- output directory: dist
+- rewrite all routes to index.html for SPA routing
+
+Required Vercel environment variables:
+
+- VITE_API_URL=https://your-render-service.onrender.com/api
+
+## CORS behavior
+
+Backend CORS is configured in server/src/app.js.
+
+- If CORS_ORIGINS is set, browser origins must match one of those values.
+- Non-browser requests (no origin header) are allowed.
+- credentials mode is enabled.
+
+## API prefixes
 
 - Auth: /api/auth
 - Applications: /api/applications
+- Health: /api/health

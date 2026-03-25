@@ -1,0 +1,33 @@
+services:
+  - type: web
+    name: job-tracker-api
+    env: node
+    plan: free
+    rootDir: server
+    buildCommand: npm install
+    startCommand: npm run start:render
+    autoDeploy: true
+    healthCheckPath: /api/health
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: CORS_ORIGINS
+        sync: false
+      - key: DB_USER
+        sync: false
+      - key: DB_PASSWORD
+        sync: false
+      - key: DB_HOST
+        sync: false
+      - key: DB_PORT
+        sync: false
+      - key: DB_NAME
+        sync: false
+      - key: DB_SSL
+        value: false
+      - key: DB_SSL_REJECT_UNAUTHORIZED
+        value: true
+      - key: JWT_SECRET
+        sync: false
+      - key: DEV_RESET_KEY
+        sync: false

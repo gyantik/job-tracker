@@ -6,7 +6,8 @@
     "db:init": "node scripts/init-db.js",
     "db:seed": "node scripts/seed-db.js",
     "dev": "nodemon src/server.js",
-    "start": "node src/server.js"
+    "start": "node src/server.js",
+    "start:render": "node src/server.js"
   },
   "keywords": [],
   "author": "",
