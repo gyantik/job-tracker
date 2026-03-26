@@ -1,4 +1,4 @@
-const { pool } = require('../config/db')
+const { initDB, pool } = require('../config/db')
 
 const selectProjection = `
   SELECT
@@ -15,6 +15,8 @@ const selectProjection = `
 
 const getApplications = async (req, res) => {
   try {
+    await initDB()
+
     const applications = await pool.query(
       `${selectProjection} FROM applications a WHERE a.user_id = $1 ORDER BY a.created_at DESC`,
       [req.user.id]
@@ -33,6 +35,8 @@ const createApplication = async (req, res) => {
   }
 
   try {
+    await initDB()
+
     const application = await pool.query(
       `WITH created AS (
          INSERT INTO applications (user_id, company, role, status, applied_date, notes)
@@ -56,6 +60,8 @@ const updateApplication = async (req, res) => {
   const { company, role, status, appliedDate, notes } = req.body
 
   try {
+    await initDB()
+
     const updated = await pool.query(
       `UPDATE applications
        SET company = $1,
@@ -93,6 +99,8 @@ const patchApplication = async (req, res) => {
   const { company, role, status, appliedDate, notes } = req.body
 
   try {
+    await initDB()
+
     const updated = await pool.query(
       `UPDATE applications
        SET company = COALESCE($1, company),
@@ -129,6 +137,8 @@ const deleteApplication = async (req, res) => {
   const { id } = req.params
 
   try {
+    await initDB()
+
     const deleted = await pool.query('DELETE FROM applications WHERE id = $1 AND user_id = $2 RETURNING id', [
       id,
       req.user.id,
