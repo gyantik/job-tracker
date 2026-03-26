@@ -1,6 +1,7 @@
 const { Pool } = require('pg')
 
 const connectionString = process.env.DATABASE_URL
+let tablesInitialized = false
 
 const poolConfig = connectionString
   ? {
@@ -17,6 +18,44 @@ const poolConfig = connectionString
     }
 
 const pool = new Pool(poolConfig)
+
+const initDB = async () => {
+  if (tablesInitialized) {
+    return
+  }
+
+  try {
+    await pool.query(`
+      CREATE TABLE IF NOT EXISTS users (
+        id SERIAL PRIMARY KEY,
+        name TEXT NOT NULL,
+        email TEXT UNIQUE NOT NULL,
+        password TEXT NOT NULL,
+        created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+      )
+    `)
+
+    await pool.query(`
+      CREATE TABLE IF NOT EXISTS applications (
+        id SERIAL PRIMARY KEY,
+        user_id INTEGER REFERENCES users(id) ON DELETE CASCADE,
+        company TEXT NOT NULL,
+        role TEXT NOT NULL,
+        status TEXT,
+        applied_date DATE,
+        notes TEXT,
+        created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+        updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+      )
+    `)
+
+    tablesInitialized = true
+    console.log('Tables ensured')
+  } catch (error) {
+    console.error('Failed to ensure database tables:', error.message)
+    throw error
+  }
+}
 
 const connectDB = async () => {
   if (process.env.NODE_ENV === 'production' && !connectionString) {
@@ -47,4 +86,4 @@ const connectDB = async () => {
   }
 }
 
-module.exports = { connectDB, pool }
+module.exports = { connectDB, initDB, pool }
